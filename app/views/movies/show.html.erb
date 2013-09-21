@@ -1,0 +1,53 @@
+
+  <article>
+    <header>
+      <h2><%= @movies.title %></h2>
+    </header>
+    <p>
+      <%= truncate(@movies.description, length: 40, separator: ' ') %>
+    </p>
+    <table>
+      <tr>
+        <th>Released:</th>
+        <td><%= @movies.released_on %></td>
+      </tr>
+      <tr>
+        <th>Rating:</th>
+        <td><%= @movies.rating %></td>
+      </tr>
+      <tr>
+        <th>Total Gross:</th>
+        <td><%= format_total_gross(@movies) %></td>
+      </tr>
+      <tr>
+        <th>Cast:</th>
+        <td><%= @movies.cast%></td>
+      </tr>
+       <tr>
+        <th>Director:</th>
+        <td><%= @movies.director%></td>
+      </tr>
+       <tr>
+        <th>Duration:</th>
+        <td><%= @movies.duration%></td>
+      </tr>
+       <tr>
+        <th>Image:</th>
+        <td><%= image_for(@movies) %>></td>
+      </tr>
+    </table>
+  
+</article>
+
+<ul id="movies">
+
+  <footer>
+ 
+    <%= link_to "Write Review", new_movie_review_path(@movies), class: 'button ok review' %>
+ 
+  </footer>
+  <footer>
+    <%= link_to "Edit", edit_movie_path(@movies) %> |
+    <%= link_to "Delete", movie_path(@movies), method: :delete, data: { confirm: 'Are you sure?' } %> 
+  </footer>
+</ul> 
